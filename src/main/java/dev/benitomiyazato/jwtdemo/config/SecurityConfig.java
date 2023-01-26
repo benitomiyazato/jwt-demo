@@ -19,8 +19,8 @@ public class SecurityConfig {
 
     private final RsaKeyProperties rsaKeys;
 
-    public SecurityConfig(RsaKeyProperties rsaKeyProperties){
-        this.rsaKeyProperties = rsaKeyProperties;
+    public SecurityConfig(RsaKeyProperties rsaKeys){
+        this.rsaKeys = rsaKeys;
     }
 
     @Bean
@@ -48,7 +48,7 @@ public class SecurityConfig {
 
     @Bean
     JwtDecoder jwtDecoder(){
-        return NimbusJwtDecoder.withPublicKey(rsaKeys.rsaPublicKey()).build();
+        return NimbusJwtDecoder.withPublicKey(rsaKeys.publicKey()).build();
     }
 
 }
